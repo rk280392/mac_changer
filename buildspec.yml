@@ -29,6 +29,6 @@ phases:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
-      - git lfs fetch
+      - git lfs pull
       - ls -latrh 
 
