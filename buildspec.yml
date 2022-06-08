@@ -10,6 +10,8 @@ phases:
       - echo Entered the install phase...
       - apt-get update -y
       - apt-get install -y maven git
+      - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+      - apt-get install git-lfs
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
