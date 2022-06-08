@@ -9,7 +9,8 @@ phases:
     commands:
       - echo Entered the install phase...
       - yum update -y
-      - yum install -y maven
+      - yum install -y maven git
+      - git lfs pull
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
@@ -27,5 +28,5 @@ phases:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
-      - ls -ltrh file.img 
+      - ls -latrh 
 
