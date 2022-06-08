@@ -12,7 +12,6 @@ phases:
       - apt-get install -y maven git
       - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
       - apt-get install git-lfs
-      - git lfs pull
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
@@ -28,7 +27,8 @@ phases:
       - echo This always runs even if the install command fails
   post_build:
     commands:
+      #- git lfs pull
+      - ls -latrh 
       - echo Entered the post_build phase...
       - echo Build completed on `date`
-      - ls -latrh 
 
