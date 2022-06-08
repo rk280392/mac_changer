@@ -8,9 +8,11 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-      - yum update -y
-      - yum install -y maven git
-      - git lfs pull
+      - apt-get update -y
+      - apt-get install -y maven git
+      - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+      - apt-get install git-lfs -y
+      - git lfs fetch
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
