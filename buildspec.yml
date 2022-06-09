@@ -29,6 +29,7 @@ phases:
       - echo This always runs even if the install command fails
   post_build:
     commands:
+      - cd $GIT_REPO
       - ls -latrh 
       - cat .gitattributes
       - echo Entered the post_build phase...
