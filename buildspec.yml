@@ -6,9 +6,6 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-      - apt-get update -y
-      - apt-get install -y maven git
-      - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
       - ls -latrh 
       - cat .gitattributes
     finally:
@@ -17,16 +14,16 @@ phases:
     commands:
       - echo Entered the pre_build phase...
     finally:
-      - echo This always runs even if the login command fails 
+      - echo Finishing pre-build setup
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
     finally:
-      - echo This always runs even if the install command fails
+      - echo Finishing build phase
   post_build:
     commands:
+      - echo Entered the post_build phase...
       - ls -latrh 
       - cat .gitattributes
-      - echo Entered the post_build phase...
       - echo Build completed on `date`
