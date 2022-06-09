@@ -3,6 +3,7 @@ version: 0.2
 env:
   variables:
     USER_SHELL: "/usr/lib/jvm/java-8-openjdk-amd64"
+    git-credential-helper: yes
 
 phases:
   install:
@@ -33,4 +34,3 @@ phases:
       - cat .gitattributes
       - echo Entered the post_build phase...
       - echo Build completed on `date`
-
