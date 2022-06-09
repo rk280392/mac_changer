@@ -9,11 +9,8 @@ phases:
       - apt-get update -y
       - apt-get install -y maven git
       - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-      - apt-get install git-lfs
       - ls -latrh 
       - cat .gitattributes
-      - echo "git env $GIT_PAT $GIT_REPO"
-      - git clone https://"$GIT_PAT"@github.com/rk280392/"$GIT_REPO".git
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
@@ -29,7 +26,6 @@ phases:
       - echo This always runs even if the install command fails
   post_build:
     commands:
-      - cd $GIT_REPO
       - ls -latrh 
       - cat .gitattributes
       - echo Entered the post_build phase...
