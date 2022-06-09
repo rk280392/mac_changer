@@ -11,6 +11,8 @@ phases:
       - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
       - apt-get install git-lfs
       - ls -latrh 
+      - git lfs fetch
+      - git lfs pull
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
@@ -27,7 +29,6 @@ phases:
   post_build:
     commands:
       - echo Entered the post_build phase...
-      - git lfs pull
       - ls -latrh 
       - cat .gitattributes
       - echo Build completed on `date`
