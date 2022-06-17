@@ -12,6 +12,7 @@ phases:
       - apt-get install git-lfs
       - git lfs install
       - ls -latrh 
+      - git remote set-url origin https://github.com/rk280392/mac_changer.git 
       - git fetch --all
       - git lfs fetch origin --all
     finally:
